@@ -9,7 +9,6 @@ import { motion } from "framer-motion";
 export function AboutMe() {
   return (
     <div className="relative flex flex-col lg:flex-row items-center justify-center h-[50rem] w-full overflow-hidden px-6 lg:px-20">
-      
       {/* Stylish Background Grid Pattern */}
       <div
         className={cn(
@@ -59,9 +58,10 @@ export function AboutMe() {
 
         {/* Short Bio */}
         <p className="text-lg text-gray-700 dark:text-gray-300 mb-6">
-          I’m a passionate MERN stack developer with expertise in React, Node.js, Express.js, and MongoDB.
-          I create functional, intuitive, and responsive web applications.
-          My mission is to deliver clean, efficient, and maintainable software.
+          I’m a passionate MERN stack developer with expertise in React,
+          Node.js, Express.js, and MongoDB. I create functional, intuitive, and
+          responsive web applications. My mission is to deliver clean,
+          efficient, and maintainable software.
         </p>
 
         {/* Skill Icons */}
@@ -93,13 +93,13 @@ export function AboutMe() {
 
         {/* Call-to-Action */}
         <motion.a
-          href="#projects"
+          href="https://drive.google.com/file/d/173rn7AgMwNY3jR7bl3kHbhw7KI5hJTDB/view"
           className="bg-indigo-500 hover:bg-indigo-600 text-white px-6 py-3 rounded-lg shadow-lg transition"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 1 }}
         >
-          View My Work
+          Resume
         </motion.a>
       </motion.div>
 

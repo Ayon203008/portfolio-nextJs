@@ -5,28 +5,46 @@ import {  ConnectMe } from '@/components/ContactMe'
 import React from 'react'
 import { Education } from '@/components/Education'
 import { AboutMe } from '@/components/AboutMe'
-// import { WorldMapDemo } from '@/components/world-map'
+import { CardHoverEffectDemo } from '@/components/Skills'
+import { TabsDemo } from '@/components/Projects'
+import { Footer } from '@/components/Footer'
+
+
 
 export default function page() {
   return (
     <div>
         
-        <div className=' mb-20'>
+        <div >
         <SpotlightPreview></SpotlightPreview>
         </div>
         <div>
           <AboutMe>  </AboutMe>
+        </div>
+        <div>
+      <CardHoverEffectDemo></CardHoverEffectDemo>
+        </div>
+        <div>
+          <TabsDemo></TabsDemo>
+        </div>
+      
+        <div>
+          <Education></Education>
         </div>
         <div className='mt-40 mb-40'>
 
         <AnimatedTestimonialsDemo></AnimatedTestimonialsDemo>
         </div>
         <div>
-          <Education></Education>
+          
         </div>
         <div>
          <ConnectMe></ConnectMe>
         </div>
+        <div>
+          <Footer></Footer>
+        </div>  
+
     </div>
   )
 }
