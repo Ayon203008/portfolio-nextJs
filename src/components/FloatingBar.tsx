@@ -3,65 +3,41 @@ import React from "react";
 import { FloatingDock } from "./ui/floating-dock";
 import {
   IconBrandGithub,
-  IconBrandX,
-  IconExchange,
-  IconHome,
-  IconNewSection,
-  IconTerminal2,
+  IconBrandLinkedin,
+  IconBrandFacebook,
+  IconBrandX, // Twitter (X)
 } from "@tabler/icons-react";
-import Image from "next/image";
 
 export function FloatingDockDemo() {
   const links = [
     {
-      title: "Home",
-      icon: <IconHome className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
-      href: "#",
+      title: "GitHub",
+      icon: <IconBrandGithub className="h-8 w-8 text-neutral-500 dark:text-neutral-300" />, // bigger
+      href: "https://github.com/Ayon203008",
     },
     {
-      title: "Products",
-      icon: <IconTerminal2 className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
-      href: "#",
+      title: "LinkedIn",
+      icon: <IconBrandLinkedin className="h-8 w-8 text-neutral-500 dark:text-neutral-300" />,
+      href: "https://www.linkedin.com/in/abidayon/",
     },
     {
-      title: "Components",
-      icon: <IconNewSection className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
-      href: "#",
-    },
-    {
-      title: "Aceternity UI",
-      icon: (
-        <Image
-          src="https://assets.aceternity.com/logo-dark.png"
-          width={20}
-          height={20}
-          alt="Aceternity Logo"
-        />
-      ),
-      href: "#",
-    },
-    {
-      title: "Changelog",
-      icon: <IconExchange className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
-      href: "#",
+      title: "Facebook",
+      icon: <IconBrandFacebook className="h-8 w-8 text-neutral-500 dark:text-neutral-300" />,
+      href: "https://www.facebook.com/ayon.ayon.583234",
     },
     {
       title: "Twitter",
-      icon: <IconBrandX className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
-      href: "#",
-    },
-    {
-      title: "GitHub",
-      icon: <IconBrandGithub className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
-      href: "#",
+      icon: <IconBrandX className="h-8 w-8 text-neutral-500 dark:text-neutral-300" />,
+      href: "https://twitter.com/your-username",
     },
   ];
 
   return (
     <div className="flex justify-center mt-6 md:mt-8">
       <FloatingDock
-        mobileClassName="translate-y-6" // small shift for mobile
+        mobileClassName="translate-y-6"
         items={links}
+        className="scale-125" // ⬅️ makes the whole dock bigger
       />
     </div>
   );

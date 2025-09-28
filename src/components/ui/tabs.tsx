@@ -25,6 +25,7 @@ export const Tabs = ({
 }) => {
   const [active, setActive] = useState<Tab>(propTabs[0]);
   const [tabs, setTabs] = useState<Tab[]>(propTabs);
+  const [hovering, setHovering] = useState(false);
 
   const moveSelectedTabToTop = (idx: number) => {
     const newTabs = [...propTabs];
@@ -34,25 +35,25 @@ export const Tabs = ({
     setActive(newTabs[0]);
   };
 
-  const [hovering, setHovering] = useState(false);
-
   return (
     <>
+      {/* Tab Buttons */}
       <div
         className={cn(
-          "flex flex-row items-center justify-start [perspective:1000px] relative overflow-auto sm:overflow-visible no-visible-scrollbar max-w-full w-full",
+          "flex flex-row items-center justify-start gap-2 sm:gap-4 relative overflow-x-auto sm:overflow-visible no-visible-scrollbar max-w-full w-full py-2",
           containerClassName
         )}
       >
         {propTabs.map((tab, idx) => (
           <button
             key={tab.title}
-            onClick={() => {
-              moveSelectedTabToTop(idx);
-            }}
+            onClick={() => moveSelectedTabToTop(idx)}
             onMouseEnter={() => setHovering(true)}
             onMouseLeave={() => setHovering(false)}
-            className={cn("relative px-4 py-2 rounded-full", tabClassName)}
+            className={cn(
+              "relative px-4 py-2 rounded-full text-sm sm:text-base whitespace-nowrap transition-colors",
+              tabClassName
+            )}
             style={{
               transformStyle: "preserve-3d",
             }}
@@ -62,24 +63,25 @@ export const Tabs = ({
                 layoutId="clickedbutton"
                 transition={{ type: "spring", bounce: 0.3, duration: 0.6 }}
                 className={cn(
-                  "absolute inset-0 bg-gray-200 dark:bg-zinc-800 rounded-full ",
+                  "absolute inset-0 bg-gray-200 dark:bg-zinc-800 rounded-full",
                   activeTabClassName
                 )}
               />
             )}
-
             <span className="relative block text-black dark:text-white">
               {tab.title}
             </span>
           </button>
         ))}
       </div>
+
+      {/* Tab Content */}
       <FadeInDiv
         tabs={tabs}
         active={active}
         key={active.value}
         hovering={hovering}
-        className={cn("mt-32", contentClassName)}
+        className={cn("mt-10 sm:mt-16 md:mt-24", contentClassName)}
       />
     </>
   );
@@ -99,22 +101,28 @@ export const FadeInDiv = ({
   const isActive = (tab: Tab) => {
     return tab.value === tabs[0].value;
   };
+
   return (
-    <div className="relative w-full h-full">
+    <div className="relative w-full h-full min-h-[24rem] sm:min-h-[30rem]">
       {tabs.map((tab, idx) => (
         <motion.div
           key={tab.value}
           layoutId={tab.value}
           style={{
-            scale: 1 - idx * 0.1,
-            top: hovering ? idx * -50 : 0,
+            // ✅ On mobile, remove stacking
+            scale: window.innerWidth < 640 ? 1 : 1 - idx * 0.1,
+            top: window.innerWidth < 640 ? 0 : hovering ? idx * -50 : 0,
             zIndex: -idx,
             opacity: idx < 3 ? 1 - idx * 0.1 : 0,
           }}
           animate={{
-            y: isActive(tab) ? [0, 40, 0] : 0,
+            y: isActive(tab) ? [0, 20, 0] : 0,
           }}
-          className={cn("w-full h-full absolute top-0 left-0", className)}
+          className={cn(
+            "w-full h-full absolute top-0 left-0",
+            "rounded-xl overflow-hidden",
+            className
+          )}
         >
           {tab.content}
         </motion.div>

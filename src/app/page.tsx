@@ -1,5 +1,5 @@
 
-import { AnimatedTestimonialsDemo } from '@/components/Testiomonial'
+// import { AnimatedTestimonialsDemo } from '@/components/Testiomonial'
 import { SpotlightPreview } from '@/components/Hero'
 import {  ConnectMe } from '@/components/ContactMe'
 import React from 'react'
@@ -9,41 +9,45 @@ import { CardHoverEffectDemo } from '@/components/Skills'
 import { TabsDemo } from '@/components/Projects'
 import { Footer } from '@/components/Footer'
 
-
+// import { calsans } from "@/fonts/calsans";
+ 
+// import { twMerge } from "tailwind-merge";
 
 export default function page() {
   return (
     <div>
+     
+
         
-        <div >
+        <div id='home' >
         <SpotlightPreview></SpotlightPreview>
         </div>
-        <div>
+        <div id='about'>
           <AboutMe>  </AboutMe>
         </div>
-        <div>
+        <div id='skills'>
       <CardHoverEffectDemo></CardHoverEffectDemo>
         </div>
-        <div>
+        <div id='projects'>
           <TabsDemo></TabsDemo>
         </div>
       
-        <div>
+        <div id='education'>
           <Education></Education>
         </div>
-        <div className='mt-40 mb-40'>
+        <div id='textimonials' className='mt-40 mb-40'>
 
-        <AnimatedTestimonialsDemo></AnimatedTestimonialsDemo>
+        {/* <AnimatedTestimonialsDemo></AnimatedTestimonialsDemo> */}
         </div>
-        <div>
+        <div id='contact'>
           
-        </div>
-        <div>
          <ConnectMe></ConnectMe>
         </div>
+      
         <div>
           <Footer></Footer>
         </div>  
+     
 
     </div>
   )

@@ -30,3 +30,7 @@ body {
 .no-visible-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
+html {
+  scroll-behavior: smooth;
+}
