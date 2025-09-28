@@ -25,7 +25,6 @@ export const TypewriterEffect = ({
   const [scope, animate] = useAnimate();
   const isInView = useInView(scope);
 
-  // ✅ Wrap animate in useCallback
   const runAnimation = useCallback(() => {
     animate(
       "span",
@@ -57,7 +56,7 @@ export const TypewriterEffect = ({
               initial={{}}
               key={`char-${index}`}
               className={cn(
-                `dark:text-white text-black opacity-0 hidden`,
+                `text-white opacity-0 hidden`,
                 word.className
               )}
             >
@@ -120,7 +119,10 @@ export const TypewriterEffectSmooth = ({
           {word.text.map((char, index) => (
             <span
               key={`char-${index}`}
-              className={cn(`dark:text-white text-black`, word.className)}
+              className={cn(
+                `text-white`,
+                word.className
+              )}
             >
               {char}
             </span>
