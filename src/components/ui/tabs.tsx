@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 type Tab = {
   title: string;
   value: string;
-  content?: string | React.ReactNode | any;
+  content?: React.ReactNode; // ✅ Removed "any"
 };
 
 export const Tabs = ({
@@ -90,17 +90,15 @@ export const Tabs = ({
 export const FadeInDiv = ({
   className,
   tabs,
+ 
   hovering,
 }: {
   className?: string;
-  key?: string;
   tabs: Tab[];
   active: Tab;
   hovering?: boolean;
 }) => {
-  const isActive = (tab: Tab) => {
-    return tab.value === tabs[0].value;
-  };
+  const isActive = (tab: Tab) => tab.value === tabs[0].value;
 
   return (
     <div className="relative w-full h-full min-h-[24rem] sm:min-h-[30rem]">
@@ -110,8 +108,8 @@ export const FadeInDiv = ({
           layoutId={tab.value}
           style={{
             // ✅ On mobile, remove stacking
-            scale: window.innerWidth < 640 ? 1 : 1 - idx * 0.1,
-            top: window.innerWidth < 640 ? 0 : hovering ? idx * -50 : 0,
+            scale: typeof window !== "undefined" && window.innerWidth < 640 ? 1 : 1 - idx * 0.1,
+            top: typeof window !== "undefined" && window.innerWidth < 640 ? 0 : hovering ? idx * -50 : 0,
             zIndex: -idx,
             opacity: idx < 3 ? 1 - idx * 0.1 : 0,
           }}
