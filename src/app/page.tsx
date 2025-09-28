@@ -23,7 +23,7 @@ export default function page() {
         <SpotlightPreview></SpotlightPreview>
         </div>
         <div id='about'>
-          <AboutMe>  </AboutMe>
+         <AboutMe/>
         </div>
         <div id='skills'>
       <CardHoverEffectDemo></CardHoverEffectDemo>

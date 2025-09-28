@@ -19,20 +19,24 @@ interface FloatingDockItem {
   href: string;
 }
 
+interface FloatingDockProps {
+  items: FloatingDockItem[];
+  desktopClassName?: string;
+  mobileClassName?: string;
+  className?: string; // ✅ Added to fix error
+}
+
 export const FloatingDock = ({
   items,
   desktopClassName,
   mobileClassName,
-}: {
-  items: FloatingDockItem[];
-  desktopClassName?: string;
-  mobileClassName?: string;
-}) => {
+  className,
+}: FloatingDockProps) => {
   return (
-    <>
+    <div className={className}>
       <FloatingDockDesktop items={items} className={desktopClassName} />
       <FloatingDockMobile items={items} className={mobileClassName} />
-    </>
+    </div>
   );
 };
 

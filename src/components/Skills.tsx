@@ -3,13 +3,7 @@
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
-import {
-  FaDatabase,
-  FaNodeJs,
-  FaReact,
-  FaServer,
-  FaFire,
-} from "react-icons/fa";
+import { FaNodeJs, FaReact, FaFire } from "react-icons/fa";
 import { SiMongodb, SiExpress, SiNextdotjs } from "react-icons/si";
 
 export const HoverEffect = ({
@@ -24,7 +18,7 @@ export const HoverEffect = ({
   }[];
   className?: string;
 }) => {
-  let [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
     <div
@@ -65,8 +59,7 @@ export const HoverEffect = ({
               <div className="flex justify-center mb-4">{item.icon}</div>
             )}
             <div className="text-center">
-
-            <CardTitle>{item.title}</CardTitle>
+              <CardTitle>{item.title}</CardTitle>
             </div>
             <CardDescription>{item.description}</CardDescription>
           </Card>

@@ -18,9 +18,11 @@ export function Education() {
             Hajee Mohammad Danesh Science & Technology University
           </p>
           <p className="mt-3 text-sm text-neutral-700 dark:text-neutral-400 leading-relaxed">
-            Currently pursuing my Bachelor's degree in CSE, focusing on{" "}
-            <span className="font-semibold text-white">MERN stack development</span>, 
-            algorithms, and problem-solving.
+            Currently pursuing my Bachelor&apos;s degree in CSE, focusing on{" "}
+            <span className="font-semibold text-white">
+              MERN stack development
+            </span>
+            , algorithms, and problem-solving.
           </p>
         </div>
       ),
@@ -40,7 +42,10 @@ export function Education() {
           </p>
           <p className="mt-3 text-sm text-neutral-700 dark:text-neutral-400 leading-relaxed">
             Specialized in Science group, developed a strong foundation in{" "}
-            <span className="font-semibold text-white">mathematics and programming fundamentals</span>.
+            <span className="font-semibold text-white">
+              mathematics and programming fundamentals
+            </span>
+            .
           </p>
         </div>
       ),
@@ -60,7 +65,10 @@ export function Education() {
           </p>
           <p className="mt-3 text-sm text-neutral-700 dark:text-neutral-400 leading-relaxed">
             Focused on science subjects, participated in{" "}
-            <span className="font-semibold text-white">coding competitions and tech-related events</span>.
+            <span className="font-semibold text-white">
+              coding competitions and tech-related events
+            </span>
+            .
           </p>
         </div>
       ),
