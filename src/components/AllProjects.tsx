@@ -8,8 +8,11 @@ export function AllProjects() {
   return (
     <TracingBeam className="px-6">
       <div className="max-w-2xl mx-auto antialiased pt-4 relative">
-        {dummyContent.map((item, index) => (
-          <div key={`content-${index}`} className="mb-10">
+        {projects.map((item, index) => (
+          <div
+            key={`content-${index}`}
+            className="mb-10 p-6 bg-neutral-900 rounded-lg shadow-lg"
+          >
             {/* Badge */}
             <h2 className="bg-black text-white rounded-full text-sm w-fit px-4 py-1 mb-4">
               {item.badge}
@@ -26,12 +29,36 @@ export function AllProjects() {
                 <Image
                   src={item.image}
                   alt="project thumbnail"
-                  height={1000}
+                  height={600}
                   width={1000}
                   className="rounded-lg mb-6 object-cover"
                 />
               )}
               {item.description}
+            </div>
+
+            {/* Buttons */}
+            <div className="mt-4 flex gap-4">
+              {item.live && (
+                <a
+                  href={item.live}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
+                >
+                  Live Link
+                </a>
+              )}
+              {item.github && (
+                <a
+                  href={item.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2 bg-gray-800 text-white rounded hover:bg-gray-900 transition"
+                >
+                  GitHub Link
+                </a>
+              )}
             </div>
           </div>
         ))}
@@ -40,58 +67,61 @@ export function AllProjects() {
   );
 }
 
-const dummyContent = [
+const projects = [
   {
-    title: "Modern React App",
+    title: "UserEcho",
     description: (
       <>
         <p>
-          Built a fully responsive and scalable React application with modern
-          hooks, context API, and TailwindCSS for styling.
+          UserEcho is a convenient platform where users can easily find and
+          book reliable services tailored to their needs.
         </p>
         <p>
-          Features include authentication, state management, and REST API
-          integration for real-world use cases.
+          <strong>Challenges:</strong> Ensuring smooth UX, reliable providers,
+          secure payments, and real-time availability.
+        </p>
+        <p>
+          <strong>Future Plans:</strong> Build a mobile app, add reviews, use AI
+          recommendations, expand services, and enable live chat.
+        </p>
+        <p>
+          <strong>Technology Used:</strong> React Js, MongoDB, Tailwind CSS,
+          Express Js, DaisyUI
         </p>
       </>
     ),
-    badge: "React",
-    image:
-      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=1200",
-  },
-  {
-    title: "Product Launch Platform",
-    description: (
-      <>
-        <p>
-          A platform designed for showcasing and launching new products with
-          marketing automation and user engagement tracking.
-        </p>
-        <p>
-          Integrated analytics dashboards and dynamic landing pages powered by
-          Next.js for SEO optimization.
-        </p>
-      </>
-    ),
-    badge: "Next.js",
+    badge: "React, MongoDB, Tailwind CSS",
     image:
       "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&q=80&w=1200",
+    live: "https://userecho.vercel.app/",
+    github: "https://github.com/Ayon203008/userecho",
   },
   {
-    title: "Changelog & Docs Site",
+    title: "GreenNest",
     description: (
       <>
         <p>
-          Developed a documentation site with a live changelog, dark/light mode,
-          and markdown support using MDX.
+          GreenNest connects you with skilled gardeners to keep your green
+          space thriving.
         </p>
         <p>
-          Deployed with Vercel for blazing-fast performance and edge caching.
+          <strong>Challenges:</strong> Designing a user-friendly platform with
+          secure data handling and payments.
+        </p>
+        <p>
+          <strong>Future Plans:</strong> Mobile app, reviews, AI matching,
+          subscriptions, and expanded service areas.
+        </p>
+        <p>
+          <strong>Technology Used:</strong> React Js, MongoDB, Tailwind CSS,
+          Express Js, DaisyUI
         </p>
       </>
     ),
-    badge: "Changelog",
+    badge: "React, MongoDB, Tailwind CSS",
     image:
-      "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&q=80&w=1200",
+      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=1200",
+    live: "https://greennest.vercel.app/",
+    github: "https://github.com/Ayon203008/greennest",
   },
 ];
