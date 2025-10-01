@@ -6,8 +6,10 @@ import React from 'react'
 import { Education } from '@/components/Education'
 import { AboutMe } from '@/components/AboutMe'
 import { CardHoverEffectDemo } from '@/components/Skills'
-import { TabsDemo } from '@/components/Projects'
+
 import { Footer } from '@/components/Footer'
+import { Navbar } from '@/components/Navbar'
+import { AllProjects } from '@/components/AllProjects'
 
 // import { calsans } from "@/fonts/calsans";
  
@@ -18,7 +20,7 @@ export default function page() {
     <div>
      
 
-        
+        <Navbar></Navbar>
         <div id='home' >
         <SpotlightPreview></SpotlightPreview>
         </div>
@@ -29,8 +31,9 @@ export default function page() {
       <CardHoverEffectDemo></CardHoverEffectDemo>
         </div>
         <div id='projects'>
-          <TabsDemo></TabsDemo>
+          <AllProjects></AllProjects>
         </div>
+       
       
         <div id='education'>
           <Education></Education>

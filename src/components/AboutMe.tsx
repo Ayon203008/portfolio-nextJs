@@ -27,7 +27,7 @@ export function AboutMe() {
   return (
     <div
       ref={ref}
-      className="relative flex flex-col lg:flex-row items-center justify-center w-full overflow-hidden px-4 sm:px-8 lg:px-20 py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-gray-900 via-black to-gray-900"
+      className="relative pt-20 mb-20 flex flex-col lg:flex-row items-center justify-center w-full overflow-hidden px-4 sm:px-8 lg:px-20 py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-gray-900 via-black to-gray-900"
     >
       {/* Background Grid */}
       <div
