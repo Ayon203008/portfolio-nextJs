@@ -10,6 +10,7 @@ import { CardHoverEffectDemo } from '@/components/Skills'
 import { Footer } from '@/components/Footer'
 import { Navbar } from '@/components/Navbar'
 import { AllProjects } from '@/components/AllProjects'
+import { GlobeDemo } from '@/components/world'
 
 // import { calsans } from "@/fonts/calsans";
  
@@ -41,6 +42,9 @@ export default function page() {
         <div id='textimonials' className='mt-40 mb-40'>
 
         {/* <AnimatedTestimonialsDemo></AnimatedTestimonialsDemo> */}
+        </div>
+        <div>
+          <GlobeDemo></GlobeDemo>
         </div>
         <div id='contact'>
           
