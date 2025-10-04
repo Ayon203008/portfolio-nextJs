@@ -7,11 +7,11 @@ import { BackgroundBeams } from "./ui/background-beams";
 
 const navLinks = [
   { name: "Home", href: "#home" },
+  { name: "About Me", href: "#about" },
   { name: "Skills", href: "#skills" },
   { name: "Projects", href: "#projects" },
   { name: "Education", href: "#education" },
-  { name: "About Me", href: "#about" },
-  { name: "Contact Us", href: "#contact" },
+  { name: "Contact Me", href: "#contact" },
 ];
 
 export function Navbar() {

@@ -2,7 +2,8 @@
 
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "motion/react";
-import { useState } from "react";
+import { useState, useRef } from "react";
+import { useInView } from "framer-motion";
 import { FaNodeJs, FaReact, FaFire } from "react-icons/fa";
 import { SiMongodb, SiExpress, SiNextdotjs } from "react-icons/si";
 
@@ -125,8 +126,23 @@ export const CardDescription = ({
 };
 
 export function CardHoverEffectDemo() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true }); // animation only once
+
   return (
-    <div className="max-w-5xl mx-auto px-8">
+    <div className="max-w-5xl mx-auto px-8" ref={ref}>
+      {/* Animated Title: Scroll triggered */}
+      {isInView && (
+        <motion.h2
+          className="mb-6 pb-5 text-center text-3xl sm:text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent"
+          initial={{ opacity: 0, x: 100 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+        >
+          Proficiency
+        </motion.h2>
+      )}
+
       <HoverEffect items={projects} />
     </div>
   );

@@ -18,7 +18,7 @@ export function SpotlightPreview() {
   return (
     <div className="relative flex h-auto min-h-screen w-full overflow-hidden rounded-md bg-black/[0.96] antialiased items-center justify-center pt-24 sm:pt-28 md:pt-36 lg:pt-40 pb-12 sm:pb-16">
       
-      {/* ORIGINAL GRID BACKGROUND */}
+      {/* Grid Background */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -64,14 +64,18 @@ export function SpotlightPreview() {
 
           {/* Text Section */}
           <div className="text-center md:text-left space-y-6 order-2 md:order-1">
+            
             {/* Animated Name */}
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-wide glow-text leading-tight"
             >
-              <TypewriterEffectSmooth words={words} />
+              {/* এখানে responsive font size দেওয়া হলো */}
+              <TypewriterEffectSmooth
+                words={words}
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold text-white tracking-wide glow-text leading-tight"
+              />
             </motion.div>
 
             {/* Subtext */}

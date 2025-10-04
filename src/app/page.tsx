@@ -30,7 +30,7 @@ export default function page() {
         <div id='skills'>
       <CardHoverEffectDemo></CardHoverEffectDemo>
         </div>
-        <div id='projects'>
+        <div id='projects' className='mt-40 mb-40'>
           <AllProjects></AllProjects>
         </div>
        

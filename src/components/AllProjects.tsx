@@ -8,6 +8,12 @@ export function AllProjects() {
   return (
     <TracingBeam className="px-6">
       <div className="max-w-2xl mx-auto antialiased pt-4 relative">
+
+        {/* Stylish Title */}
+        <h2 className="mb-10 text-center pb-5 text-4xl sm:text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-indigo-600 via-purple-400 to-pink-600 bg-clip-text text-transparent">
+          My Projects
+        </h2>
+
         {projects.map((item, index) => (
           <div
             key={`content-${index}`}

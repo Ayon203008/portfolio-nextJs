@@ -1,23 +1,19 @@
-"use client";
-import { TypewriterEffectSmooth } from "./ui/typewriter-effect";
-export function TypewriterEffectSmoothDemo() {
-  const words = [
-    {
-      text: "ABID",
-    },
-    {
-      text: "HASAN",
-    },
-    {
-      text: "AYON",
-    },
-   
-  ];
-  return (
-    <div className="flex flex-col items-center justify-center h-[40rem]  ">
+import { cn } from "@/lib/utils";
 
-      <TypewriterEffectSmooth words={words} />
- 
+export function TypewriterEffectSmooth({
+  words,
+  className,
+}: {
+  words: { text: string }[];
+  className?: string;
+}) {
+  return (
+    <div className={cn("inline-flex", className)}>
+      {words.map((word, index) => (
+        <span key={index} className="inherit">
+          {word.text}{" "}
+        </span>
+      ))}
     </div>
   );
 }
