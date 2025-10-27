@@ -2,149 +2,162 @@
 
 import { cn } from "@/lib/utils";
 import React, { useRef } from "react";
-import { FaReact, FaNodeJs, FaDatabase } from "react-icons/fa";
-import { SiMongodb, SiExpress } from "react-icons/si";
 import { motion, useInView } from "framer-motion";
 
 export function AboutMe() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
 
-  const containerVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { staggerChildren: 0.3, duration: 1 }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 }
-  };
+  const stats = [
+    { number: "10+", label: "Projects Built" },
+    { number: "MERN", label: "Specialization" },
+    { number: "100%", label: "Code Quality" },
+    { number: "24/7", label: "Learning Mindset" }
+  ];
 
   return (
     <div
       ref={ref}
-      className="relative pt-20 mb-20 flex flex-col lg:flex-row items-center justify-center w-full overflow-hidden px-4 sm:px-8 lg:px-20 py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-gray-900 via-black to-gray-900"
+      className="relative min-h-screen flex items-center justify-center w-full overflow-hidden px-4 sm:px-6 lg:px-8 py-16 bg-gradient-to-br from-gray-900 via-black to-gray-900"
     >
-      {/* Background Grid */}
-      <div
-        className={cn(
-          "absolute inset-0 animate-pulse-slow",
-          "[background-size:30px_30px] sm:[background-size:40px_40px]",
-          "[background-image:linear-gradient(to_right,#1f1f1f_1px,transparent_1px),linear-gradient(to_bottom,#1f1f1f_1px,transparent_1px)]"
-        )}
-      />
-      <div className="pointer-events-none absolute inset-0 bg-black/70" />
-
-      {/* Left Image */}
-      <motion.div
-        className="lg:w-1/2 flex justify-center mb-8 lg:mb-0 relative z-20"
-        initial={{ opacity: 0, x: -100 }}
-        animate={isInView ? { opacity: 1, x: 0 } : {}}
-        transition={{ duration: 1 }}
-      >
-        <motion.img
-          src="https://i.ibb.co/Kzs6cTsq/profile.jpg"
-          alt="My Photo"
-          className="w-48 h-48 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-xl shadow-2xl border-4 border-indigo-500 object-cover"
-          whileHover={{ scale: 1.08, rotate: 2 }}
-          transition={{ type: "spring", stiffness: 300 }}
+      {/* Simplified Background */}
+      <div className="absolute inset-0">
+        <div className="absolute top-20 left-10 w-80 h-80 bg-purple-600/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-10 w-80 h-80 bg-blue-600/10 rounded-full blur-3xl" />
+        
+        <div
+          className={cn(
+            "absolute inset-0 opacity-20",
+            "[background-size:50px_50px]",
+            "[background-image:linear-gradient(to_right,rgba(99,102,241,0.1)_1px,transparent_1px),linear-gradient(to_bottom,rgba(99,102,241,0.1)_1px,transparent_1px)]"
+          )}
         />
-      </motion.div>
+      </div>
 
-      {/* Right Content */}
-      <motion.div
-        className="lg:w-1/2 flex flex-col items-start text-left max-w-2xl relative z-20"
-        variants={containerVariants}
-        initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
-      >
-        <motion.h1
-          variants={itemVariants}
-          className="mb-4 text-3xl sm:text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent"
-        >
-          About Me
-        </motion.h1>
-
-        <motion.p
-          variants={itemVariants}
-          className="text-base sm:text-lg md:text-xl text-gray-300 mb-4"
-        >
-          Building modern, scalable web applications with the MERN stack.
-          Turning ideas into reality.
-        </motion.p>
-
-        <motion.p
-          variants={itemVariants}
-          className="text-sm sm:text-base md:text-lg text-gray-400 mb-6"
-        >
-          I’m a passionate MERN stack developer with expertise in React,
-          Node.js, Express.js, and MongoDB. I create functional, intuitive,
-          and responsive web applications. My mission is to deliver clean,
-          efficient, and maintainable software.
-        </motion.p>
-
-        {/* Skill Icons */}
+      {/* Main Content */}
+      <div className="relative z-20 w-full max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        
+        {/* Lottie/Code Animation Section */}
         <motion.div
-          variants={itemVariants}
-          className="flex flex-wrap gap-6 mb-6 text-3xl sm:text-4xl text-indigo-500"
+          className="flex justify-center lg:justify-start"
+          initial={{ opacity: 0, x: -60 }}
+          animate={isInView ? { opacity: 1, x: 0 } : {}}
+          transition={{ duration: 0.8 }}
         >
-          <SkillIcon icon={<FaReact />} name="React" />
-          <SkillIcon icon={<SiExpress />} name="Express.js" />
-          <SkillIcon icon={<FaNodeJs />} name="Node.js" />
-          <SkillIcon icon={<SiMongodb />} name="MongoDB" />
-          <SkillIcon icon={<FaDatabase />} name="Databases" />
+          <div className="relative w-full max-w-md">
+            {/* Code Animation Container */}
+            <div className="relative bg-gray-800/50 backdrop-blur-sm rounded-2xl border border-gray-700 p-8 shadow-2xl">
+              {/* Animated Code Blocks */}
+              <div className="space-y-4">
+                <CodeLine text="const developer = {" delay={0} />
+                <CodeLine text="  name: 'Abid Hasan Ayon'," delay={0.2} indent={2} />
+                <CodeLine text="  specialization: 'MERN Stack'," delay={0.4} indent={2} />
+                <CodeLine text="  passion: 'Clean Code & Scalable Apps'" delay={0.6} indent={2} />
+                <CodeLine text="};" delay={0.8} />
+              </div>
+              
+              {/* Floating Elements */}
+              <div className="absolute -top-3 -right-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-3 py-1 rounded-full text-xs font-semibold">
+                MERN
+              </div>
+              <div className="absolute -bottom-3 -left-3 bg-gradient-to-r from-green-500 to-cyan-500 text-white px-3 py-1 rounded-full text-xs font-semibold">
+                Developer
+              </div>
+            </div>
+          </div>
         </motion.div>
 
-        {/* Achievements */}
-        <motion.ul
-          variants={itemVariants}
-          className="space-y-2 mb-6 text-gray-400 text-sm sm:text-base"
+        {/* Content Section - Simplified */}
+        <motion.div
+          className="flex flex-col space-y-8"
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: { staggerChildren: 0.15, duration: 0.6 }
+            }
+          }}
         >
-          <li>🚀 Built 15+ MERN applications</li>
-          <li>💡 Experienced in REST APIs & GraphQL</li>
-          <li>🌐 Deployed projects using Vercel & Netlify</li>
-          <li>🔧 Skilled in performance optimization & responsive design</li>
-        </motion.ul>
+          {/* Header */}
+          <div className="space-y-4">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 rounded-full border border-white/10 backdrop-blur-sm">
+              <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+              <span className="text-sm text-gray-300 font-medium">Open for opportunities</span>
+            </div>
+            
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold">
+              <span className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+                MERN Stack
+              </span>
+              <br />
+              <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+                Developer
+              </span>
+            </h1>
+            
+            <p className="text-lg text-gray-300 leading-relaxed">
+              Specializing in MongoDB, Express.js, React, and Node.js to build 
+              scalable, modern web applications with clean, efficient code.
+            </p>
+          </div>
 
-        {/* CTA Button */}
-        <motion.a
-          variants={itemVariants}
-          href="https://drive.google.com/file/d/173rn7AgMwNY3jR7bl3kHbhw7KI5hJTDB/view"
-          className="bg-indigo-500 hover:bg-indigo-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg shadow-lg transition-transform transform hover:scale-105 text-sm sm:text-base"
-        >
-          Resume
-        </motion.a>
-      </motion.div>
+          {/* Stats Grid */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            {stats.map((stat, index) => (
+              <div key={index} className="text-center p-4 bg-white/5 rounded-xl border border-white/10 backdrop-blur-sm">
+                <div className="text-xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+                  {stat.number}
+                </div>
+                <div className="text-xs text-gray-400 mt-1">{stat.label}</div>
+              </div>
+            ))}
+          </div>
 
-      {/* Floating Shapes */}
-      <motion.div
-        className="absolute top-10 left-4 sm:left-10 w-20 h-20 sm:w-32 sm:h-32 bg-indigo-500 rounded-full opacity-20"
-        animate={{ scale: [1, 1.2, 1], rotate: [0, 45, 0] }}
-        transition={{ duration: 6, repeat: Infinity }}
-      />
-      <motion.div
-        className="absolute bottom-10 right-4 sm:right-20 w-28 h-28 sm:w-48 sm:h-48 bg-pink-500 rounded-full opacity-20"
-        animate={{ scale: [1, 1.3, 1], rotate: [0, -45, 0] }}
-        transition={{ duration: 8, repeat: Infinity }}
-      />
+          {/* Description */}
+          <div className="space-y-4">
+            <p className="text-gray-300 leading-relaxed">
+              As a dedicated MERN stack developer, I focus on creating robust, scalable web applications 
+              using cutting-edge technologies. My passion lies in solving complex problems and delivering 
+              exceptional user experiences through clean, maintainable code.
+            </p>
+          </div>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-wrap gap-4 pt-4">
+            <a
+              href="https://drive.google.com/file/d/173rn7AgMwNY3jR7bl3kHbhw7KI5hJTDB/view"
+              className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-6 py-3 rounded-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+            >
+              View Resume
+            </a>
+            
+            <a
+              href="#contact"
+              className="px-6 py-3 border border-white/20 text-white rounded-lg font-semibold backdrop-blur-sm hover:bg-white/10 transition-all duration-300"
+            >
+              Contact Me
+            </a>
+          </div>
+        </motion.div>
+      </div>
     </div>
   );
 }
 
-// Skill Icon Component
-function SkillIcon({ icon, name }: { icon: React.ReactNode; name: string }) {
+// Code Line Component
+function CodeLine({ text, delay = 0, indent = 0 }: { text: string; delay?: number; indent?: number }) {
   return (
     <motion.div
-      whileHover={{ scale: 1.2, color: "#8b5cf6" }}
-      className="flex flex-col items-center min-w-[60px]"
-      title={name}
+      className="flex items-center font-mono text-sm"
+      initial={{ opacity: 0, x: -20 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.5, delay }}
+      style={{ marginLeft: `${indent * 8}px` }}
     >
-      {icon}
-      <span className="text-xs sm:text-sm text-gray-400 mt-1">{name}</span>
+      <span className="text-green-400 mr-2">{">"}</span>
+      <span className="text-gray-300">{text}</span>
     </motion.div>
   );
 }

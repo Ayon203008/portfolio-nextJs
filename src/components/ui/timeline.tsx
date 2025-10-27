@@ -5,10 +5,14 @@ import {
   motion,
 } from "motion/react";
 import React, { useEffect, useRef, useState } from "react";
-import { cn } from "@/lib/utils";
+
+import { SiJavascript, SiTypescript, SiReact, SiNodedotjs, SiNextdotjs, SiMongodb } from "react-icons/si";
 
 interface TimelineEntry {
   title: string;
+  subtitle: string;
+  icon: React.ReactNode;
+  gradient: string;
   content: React.ReactNode;
 }
 
@@ -35,76 +39,141 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
   return (
     <div
       ref={containerRef}
-      className="relative flex w-full items-center justify-center overflow-hidden"
+      className="relative flex w-full items-center justify-center overflow-hidden bg-neutral-950"
     >
-      {/* === Solid dark background color (always dark) === */}
-      <div className="absolute inset-0 bg-neutral-950" />
+      {/* Animated Background Gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-neutral-900 via-neutral-950 to-black" />
+      
+      {/* Animated Grid Pattern */}
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,black_40%,transparent_100%)]" />
+      </div>
 
-      {/* === Grid overlay === */}
-      <div
-        className={cn(
-          "absolute inset-0",
-          "[background-size:40px_40px]",
-          "[background-image:linear-gradient(to_right,#e4e4e7_1px,transparent_1px),linear-gradient(to_bottom,#e4e4e7_1px,transparent_1px)]",
-          "dark:[background-image:linear-gradient(to_right,#2a2a2a_1px,transparent_1px),linear-gradient(to_bottom,#2a2a2a_1px,transparent_1px)]"
-        )}
-      />
+      {/* Floating Particles */}
+      <div className="absolute inset-0">
+        {[...Array(20)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-[1px] h-[1px] bg-white rounded-full"
+            initial={{
+              x: Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1000),
+              y: Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 1000),
+            }}
+            animate={{
+              y: [0, -30, 0],
+              opacity: [0, 0.5, 0],
+            }}
+            transition={{
+              duration: Math.random() * 3 + 2,
+              repeat: Infinity,
+              delay: Math.random() * 2,
+            }}
+          />
+        ))}
+      </div>
 
-      {/* === Radial fade effect === */}
-      <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-neutral-950 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
-
-      {/* === Timeline Content === */}
-      <div className="relative z-20 w-full">
-        <div className="max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10">
-          <h2 className="text-lg md:text-4xl mb-4 text-white max-w-4xl">
-            Changelog from my journey
-          </h2>
-          <p className="text-neutral-300 text-sm md:text-base max-w-sm">
-            I&apos;ve been working on Aceternity for the past 2 years. Here&apos;s a timeline of my journey.
-          </p>
+      {/* Main Content */}
+      <div className="relative z-20 w-full max-w-6xl mx-auto">
+        {/* Header */}
+        <div className="text-center py-20 px-4">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-gray-300 to-gray-400 bg-clip-text text-transparent"
+          >
+            Education Journey
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="text-xl text-neutral-400 max-w-2xl mx-auto"
+          >
+            From foundational learning to specialized computer science education
+          </motion.p>
         </div>
 
-        <div ref={ref} className="relative max-w-7xl mx-auto pb-20">
+        {/* Timeline */}
+        <div ref={ref} className="relative pb-32">
           {data.map((item, index) => (
-            <div
+            <motion.div
               key={index}
-              className="flex justify-start pt-10 md:pt-40 md:gap-10"
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.2 }}
+              viewport={{ once: true }}
+              className="flex justify-start pt-20"
             >
-              <div className="sticky flex flex-col md:flex-row z-40 items-center top-40 self-start max-w-xs lg:max-w-sm md:w-full">
-                <div className="h-10 absolute left-3 md:left-3 w-10 rounded-full bg-neutral-950 flex items-center justify-center">
-                  <div className="h-4 w-4 rounded-full bg-neutral-200 dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700 p-2" />
+              {/* Timeline Node */}
+              <div className="sticky z-40 flex items-center top-40 self-start min-w-[120px] md:min-w-[200px]">
+                <div className={`relative h-12 w-12 rounded-full bg-gradient-to-r ${item.gradient} flex items-center justify-center shadow-lg shadow-current/30`}>
+                  <div className="text-white">
+                    {item.icon}
+                  </div>
+                  {/* Glow effect */}
+                  <div className={`absolute inset-0 rounded-full bg-gradient-to-r ${item.gradient} blur-sm opacity-50`} />
                 </div>
-                <h3 className="hidden md:block text-xl md:pl-20 md:text-5xl font-bold text-neutral-300">
-                  {item.title}
-                </h3>
+                
+                {/* Date */}
+                <div className="absolute left-16 md:left-20">
+                  <h3 className="text-lg md:text-2xl font-bold text-white whitespace-nowrap">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm text-neutral-400 mt-1">
+                    {item.subtitle}
+                  </p>
+                </div>
               </div>
 
-              <div className="relative pl-20 pr-4 md:pl-4 w-full">
-                <h3 className="md:hidden block text-2xl mb-4 text-left font-bold text-neutral-300">
-                  {item.title}
-                </h3>
-                {item.content}
+              {/* Content Card */}
+              <div className="relative pl-24 md:pl-32 pr-4 w-full">
+                <div className="group relative">
+                  {/* Card Glow */}
+                  <div className={`absolute -inset-0.5 bg-gradient-to-r ${item.gradient} rounded-2xl blur opacity-20 group-hover:opacity-30 transition duration-300`} />
+                  
+                  {/* Main Card */}
+                  <div className="relative bg-neutral-900/80 backdrop-blur-sm border border-neutral-800 rounded-xl p-6 shadow-2xl">
+                    {item.content}
+                  </div>
+                </div>
               </div>
-            </div>
+            </motion.div>
           ))}
 
-          {/* === Scroll line === */}
+          {/* Animated Timeline Line */}
           <div
             style={{ height: height + "px" }}
-            className="absolute md:left-8 left-8 top-0 overflow-hidden w-[2px] 
-            bg-[linear-gradient(to_bottom,var(--tw-gradient-stops))] 
-            from-transparent via-neutral-200 dark:via-neutral-700 to-transparent
-            [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)] "
+            className="absolute left-6 top-0 overflow-hidden w-1 
+            bg-gradient-to-b from-transparent via-neutral-700 to-transparent
+            [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)]"
           >
             <motion.div
               style={{
                 height: heightTransform,
                 opacity: opacityTransform,
               }}
-              className="absolute inset-x-0 top-0 w-[2px] 
-              bg-gradient-to-t from-purple-500 via-blue-500 to-transparent rounded-full"
+              className="absolute inset-x-0 top-0 w-1 bg-gradient-to-b from-purple-500 via-blue-500 to-cyan-500 rounded-full shadow-lg shadow-blue-500/50"
             />
           </div>
+        </div>
+
+        {/* Footer */}
+        <div className="text-center pb-20 px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className="inline-flex items-center gap-4 px-6 py-3 bg-neutral-900/50 backdrop-blur-sm rounded-full border border-neutral-800"
+          >
+            <div className="flex gap-3">
+              <SiJavascript className="text-yellow-400 text-xl" />
+              <SiTypescript className="text-blue-500 text-xl" />
+              <SiReact className="text-cyan-400 text-xl" />
+              <SiNextdotjs className="text-white text-xl" />
+              <SiNodedotjs className="text-green-500 text-xl" />
+              <SiMongodb className="text-green-600 text-xl" />
+            </div>
+            <span className="text-neutral-300 font-medium">Tech Stack</span>
+          </motion.div>
         </div>
       </div>
     </div>

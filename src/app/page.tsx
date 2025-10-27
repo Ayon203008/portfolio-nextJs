@@ -39,10 +39,6 @@ export default function page() {
         <div id='education'>
           <Education></Education>
         </div>
-        <div id='textimonials' className='mt-40 mb-40'>
-
-        {/* <AnimatedTestimonialsDemo></AnimatedTestimonialsDemo> */}
-        </div>
       
         <div id='contact'>
           

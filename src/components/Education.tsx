@@ -6,77 +6,116 @@ export function Education() {
   const data = [
     {
       title: "2024 - Present",
+      subtitle: "Bachelor's Degree",
+      icon: <FaUniversity className="text-xl" />,
+      gradient: "from-purple-500 to-blue-500",
       content: (
-        <div>
-          <div className="flex items-center gap-3 mb-4">
-            <FaUniversity className="text-indigo-500 text-xl md:text-2xl" />
-            <h3 className="text-lg md:text-xl font-semibold text-neutral-800 dark:text-neutral-100">
+        <div className="space-y-4">
+          <div>
+            <h3 className="text-xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
               B.Sc. in Computer Science & Engineering
             </h3>
+            <p className="text-neutral-300 font-medium mt-1">
+              Hajee Mohammad Danesh Science & Technology University
+            </p>
           </div>
-          <p className="text-sm md:text-base font-medium text-neutral-600 dark:text-neutral-300">
-            Hajee Mohammad Danesh Science & Technology University
+          <p className="text-neutral-400 leading-relaxed">
+            Currently pursuing Bachelor's degree in CSE with focus on modern web technologies, 
+            software architecture, and advanced programming concepts.
           </p>
-          <p className="mt-3 text-sm text-neutral-700 dark:text-neutral-400 leading-relaxed">
-            Currently pursuing my Bachelor&apos;s degree in CSE, focusing on{" "}
-            <span className="font-semibold text-white">
-              MERN stack development
+          <div className="flex flex-wrap gap-2 pt-2">
+            <span className="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-sm border border-purple-500/30">
+              Full Stack Development
             </span>
-            , algorithms, and problem-solving.
-          </p>
+            <span className="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm border border-blue-500/30">
+              Data Structures
+            </span>
+            <span className="px-3 py-1 bg-cyan-500/20 text-cyan-300 rounded-full text-sm border border-cyan-500/30">
+              Algorithms
+            </span>
+            <span className="px-3 py-1 bg-indigo-500/20 text-indigo-300 rounded-full text-sm border border-indigo-500/30">
+              System Design
+            </span>
+          </div>
         </div>
       ),
     },
     {
       title: "2022 - 2023",
+      subtitle: "College",
+      icon: <FaGraduationCap className="text-xl" />,
+      gradient: "from-green-500 to-emerald-500",
       content: (
-        <div>
-          <div className="flex items-center gap-3 mb-4">
-            <FaGraduationCap className="text-green-500 text-xl md:text-2xl" />
-            <h3 className="text-lg md:text-xl font-semibold text-neutral-800 dark:text-neutral-100">
+        <div className="space-y-4">
+          <div>
+            <h3 className="text-xl font-bold bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">
               Higher Secondary Certificate (HSC)
             </h3>
+            <p className="text-neutral-300 font-medium mt-1">
+              Gaibandha Govt College - Science Group
+            </p>
           </div>
-          <p className="text-sm md:text-base font-medium text-neutral-600 dark:text-neutral-300">
-            Gaibandha Govt College
+          <p className="text-neutral-400 leading-relaxed">
+            Built strong analytical foundation with advanced mathematics and physics, 
+            while exploring programming fundamentals and computational thinking.
           </p>
-          <p className="mt-3 text-sm text-neutral-700 dark:text-neutral-400 leading-relaxed">
-            Specialized in Science group, developed a strong foundation in{" "}
-            <span className="font-semibold text-white">
-              mathematics and programming fundamentals
+          <div className="flex flex-wrap gap-2 pt-2">
+            <span className="px-3 py-1 bg-green-500/20 text-green-300 rounded-full text-sm border border-green-500/30">
+              Advanced Mathematics
             </span>
-            .
-          </p>
+            <span className="px-3 py-1 bg-emerald-500/20 text-emerald-300 rounded-full text-sm border border-emerald-500/30">
+              Physics
+            </span>
+            <span className="px-3 py-1 bg-cyan-500/20 text-cyan-300 rounded-full text-sm border border-cyan-500/30">
+              Programming Logic
+            </span>
+            <span className="px-3 py-1 bg-lime-500/20 text-lime-300 rounded-full text-sm border border-lime-500/30">
+              Problem Solving
+            </span>
+          </div>
         </div>
       ),
     },
     {
       title: "2019 - 2021",
+      subtitle: "School",
+      icon: <FaSchool className="text-xl" />,
+      gradient: "from-pink-500 to-rose-500",
       content: (
-        <div>
-          <div className="flex items-center gap-3 mb-4">
-            <FaSchool className="text-pink-500 text-xl md:text-2xl" />
-            <h3 className="text-2xl md:text-xl font-semibold text-neutral-800 dark:text-neutral-100">
+        <div className="space-y-4">
+          <div>
+            <h3 className="text-xl font-bold bg-gradient-to-r from-pink-400 to-rose-400 bg-clip-text text-transparent">
               Secondary School Certificate (SSC)
             </h3>
+            <p className="text-neutral-300 font-medium mt-1">
+              Ahmmaduddin Shah Shishu Niketan School and College
+            </p>
           </div>
-          <p className="text-sm md:text-base font-medium text-neutral-600 dark:text-neutral-300">
-            Ahmmaduddin Shah Shishu Niketan School and College
+          <p className="text-neutral-400 leading-relaxed">
+            Developed foundational interest in technology and programming, participated in 
+            science fairs and coding competitions, establishing the groundwork for computer science journey.
           </p>
-          <p className="mt-3 text-sm text-neutral-700 dark:text-neutral-400 leading-relaxed">
-            Focused on science subjects, participated in{" "}
-            <span className="font-semibold text-white">
-              coding competitions and tech-related events
+          <div className="flex flex-wrap gap-2 pt-2">
+            <span className="px-3 py-1 bg-pink-500/20 text-pink-300 rounded-full text-sm border border-pink-500/30">
+              Computer Science
             </span>
-            .
-          </p>
+            <span className="px-3 py-1 bg-rose-500/20 text-rose-300 rounded-full text-sm border border-rose-500/30">
+              Mathematics
+            </span>
+            <span className="px-3 py-1 bg-orange-500/20 text-orange-300 rounded-full text-sm border border-orange-500/30">
+              Science Projects
+            </span>
+            <span className="px-3 py-1 bg-red-500/20 text-red-300 rounded-full text-sm border border-red-500/30">
+              Tech Events
+            </span>
+          </div>
         </div>
       ),
     },
   ];
 
   return (
-    <div className="relative w-full overflow-clip">
+    <div className="relative w-full min-h-screen overflow-hidden bg-neutral-950">
       <Timeline data={data} />
     </div>
   );

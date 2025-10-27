@@ -8,8 +8,6 @@ export function AllProjects() {
   return (
     <TracingBeam className="px-6">
       <div className="max-w-2xl mx-auto antialiased pt-4 relative">
-
-        {/* Stylish Title */}
         <h2 className="mb-10 text-center pb-5 text-4xl sm:text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-indigo-600 via-purple-400 to-pink-600 bg-clip-text text-transparent">
           My Projects
         </h2>
@@ -19,17 +17,12 @@ export function AllProjects() {
             key={`content-${index}`}
             className="mb-10 p-6 bg-neutral-900 rounded-lg shadow-lg"
           >
-            {/* Badge */}
             <h2 className="bg-black text-white rounded-full text-sm w-fit px-4 py-1 mb-4">
               {item.badge}
             </h2>
 
-            {/* Title */}
-            <p className={twMerge("text-2xl font-semibold mb-4 text-white")}>
-              {item.title}
-            </p>
+            <p className={twMerge("text-2xl font-semibold mb-4 text-white")}>{item.title}</p>
 
-            {/* Description + Image */}
             <div className="text-sm prose prose-sm dark:prose-invert">
               {item?.image && (
                 <Image
@@ -43,7 +36,6 @@ export function AllProjects() {
               {item.description}
             </div>
 
-            {/* Buttons */}
             <div className="mt-4 flex gap-4">
               {item.live && (
                 <a
@@ -75,59 +67,58 @@ export function AllProjects() {
 
 const projects = [
   {
-    title: "UserEcho",
+    title: "TrustZen",
     description: (
       <>
         <p>
-          UserEcho is a convenient platform where users can easily find and
-          book reliable services tailored to their needs.
+          TrustZen is a service marketplace where users can explore various local services, read and post reviews,
+          and book trustworthy providers easily.
         </p>
         <p>
-          <strong>Challenges:</strong> Ensuring smooth UX, reliable providers,
-          secure payments, and real-time availability.
+          <strong>Main Features:</strong> Service browsing, user dashboard, add services, review and update reviews.
         </p>
         <p>
-          <strong>Future Plans:</strong> Build a mobile app, add reviews, use AI
-          recommendations, expand services, and enable live chat.
+          <strong>Challenges:</strong> Implementing secure authentication, dashboard functionality, and smooth UX.
         </p>
         <p>
-          <strong>Technology Used:</strong> React Js, MongoDB, Tailwind CSS,
-          Express Js, DaisyUI
+          <strong>Future Plans:</strong> Admin routes & authorization, enhanced functionality, and UI improvements.
+        </p>
+        <p>
+          <strong>Technology Used:</strong> React.js, Firebase, TailwindCSS, Express.js, Node.js, MongoDB, Framer Motion.
         </p>
       </>
     ),
-    badge: "React, MongoDB, Tailwind CSS",
-    image:
-      "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&q=80&w=1200",
-    live: "https://userecho.vercel.app/",
-    github: "https://github.com/Ayon203008/userecho",
+    badge: "React, MongoDB, Tailwind CSS, Firebase, Express.js, Node.js, Framer Motion",
+    image: "https://i.postimg.cc/MG8S8pgH/Trustzen.png",
+    live: "https://trustzen-8e0c3.web.app/",
+    github: "https://github.com/Ayon203008/TrustZen-client-update-",
   },
   {
-    title: "GreenNest",
+    title: "Soulmate",
     description: (
       <>
         <p>
-          GreenNest connects you with skilled gardeners to keep your green
-          space thriving.
+          Soulmate is a matrimony platform helping users find their perfect life partner through detailed biodata
+          browsing and profile features.
         </p>
         <p>
-          <strong>Challenges:</strong> Designing a user-friendly platform with
-          secure data handling and payments.
+          <strong>Main Features:</strong> Profile listing, biodata upload, favorite system, admin dashboard to manage users
+          and premium requests.
         </p>
         <p>
-          <strong>Future Plans:</strong> Mobile app, reviews, AI matching,
-          subscriptions, and expanded service areas.
+          <strong>Challenges:</strong> Building a fully functional admin panel with role-based management.
         </p>
         <p>
-          <strong>Technology Used:</strong> React Js, MongoDB, Tailwind CSS,
-          Express Js, DaisyUI
+          <strong>Future Plans:</strong> UI enhancements, increased responsiveness, and new matchmaking functionalities.
+        </p>
+        <p>
+          <strong>Technology Used:</strong> React.js, Firebase, TailwindCSS, Express.js, Node.js, MongoDB.
         </p>
       </>
     ),
-    badge: "React, MongoDB, Tailwind CSS",
-    image:
-      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=1200",
-    live: "https://greennest.vercel.app/",
-    github: "https://github.com/Ayon203008/greennest",
+    badge: "React, MongoDB, Tailwind CSS, Node.js, Express.js, Firebase",
+    image: "https://i.postimg.cc/nhVHsz3p/Screenshot-2025-10-27-223814.png",
+    live: "https://last-try-f6ea0.web.app/",
+    github: "https://github.com/Ayon203008/Soulmate_client-update-",
   },
 ];
