@@ -130,7 +130,7 @@ export function CardHoverEffectDemo() {
   const isInView = useInView(ref, { once: true }); // animation only once
 
   return (
-    <div className="max-w-5xl mx-auto px-8" ref={ref}>
+    <div className="max-w-5xl lg:pt-40 mx-auto px-8" ref={ref}>
       {/* Animated Title: Scroll triggered */}
       {isInView && (
         <motion.h2
