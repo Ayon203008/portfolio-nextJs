@@ -6,7 +6,8 @@ export function Education() {
   const data = [
     {
       title: "2024 - Present",
-      subtitle: "Bachelor's Degree",
+      // এখানে 's কে &apos; দিয়ে পরিবর্তন করা হয়েছে
+      subtitle: "Bachelor&apos;s Degree",
       icon: <FaUniversity className="text-xl" />,
       gradient: "from-purple-500 to-blue-500",
       content: (
@@ -20,7 +21,8 @@ export function Education() {
             </p>
           </div>
           <p className="text-neutral-400 leading-relaxed">
-            Currently pursuing Bachelor's degree in CSE with focus on modern web technologies, 
+            {/* এখানে 's কে &apos; দিয়ে পরিবর্তন করা হয়েছে */}
+            Currently pursuing Bachelor&apos;s degree in CSE with focus on modern web technologies, 
             software architecture, and advanced programming concepts.
           </p>
           <div className="flex flex-wrap gap-2 pt-2">
