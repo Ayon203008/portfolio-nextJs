@@ -6,8 +6,7 @@ export function Education() {
   const data = [
     {
       title: "2024 - Present",
-      // এখানে 's কে &apos; দিয়ে পরিবর্তন করা হয়েছে
-      subtitle: "Bachelor&apos;s Degree",
+      subtitle: "Bachelor's Degree",
       icon: <FaUniversity className="text-xl" />,
       gradient: "from-purple-500 to-blue-500",
       content: (
@@ -21,8 +20,7 @@ export function Education() {
             </p>
           </div>
           <p className="text-neutral-400 leading-relaxed">
-       
-            Currently pursuing Bachelor&apos;s degree in CSE with focus on modern web technologies, 
+            Currently pursuing Bachelors degree in CSE with focus on modern web technologies, 
             software architecture, and advanced programming concepts.
           </p>
           <div className="flex flex-wrap gap-2 pt-2">
@@ -116,9 +114,119 @@ export function Education() {
     },
   ];
 
+  const mobileData = [
+    {
+      year: "2024 - Present",
+      degree: "B.Sc. in Computer Science & Engineering",
+      institution: "Hajee Mohammad Danesh Science & Technology University",
+      type: "Bachelor's Degree",
+      icon: <FaUniversity className="text-2xl" />,
+      gradient: "from-purple-500 to-blue-500",
+      description: "Currently pursuing Bachelor's degree in CSE with focus on modern web technologies, software architecture, and advanced programming concepts.",
+      skills: ["Full Stack Development", "Data Structures", "Algorithms", "System Design"],
+      skillColors: ["purple", "blue", "cyan", "indigo"]
+    },
+    {
+      year: "2022 - 2023",
+      degree: "Higher Secondary Certificate (HSC)",
+      institution: "Gaibandha Govt College - Science Group",
+      type: "College",
+      icon: <FaGraduationCap className="text-2xl" />,
+      gradient: "from-green-500 to-emerald-500",
+      description: "Built strong analytical foundation with advanced mathematics and physics, while exploring programming fundamentals and computational thinking.",
+      skills: ["Advanced Mathematics", "Physics", "Programming Logic", "Problem Solving"],
+      skillColors: ["green", "emerald", "cyan", "lime"]
+    },
+    {
+      year: "2019 - 2021",
+      degree: "Secondary School Certificate (SSC)",
+      institution: "Ahmmaduddin Shah Shishu Niketan School and College",
+      type: "School",
+      icon: <FaSchool className="text-2xl" />,
+      gradient: "from-pink-500 to-rose-500",
+      description: "Developed foundational interest in technology and programming, participated in science fairs and coding competitions, establishing the groundwork for computer science journey.",
+      skills: ["Computer Science", "Mathematics", "Science Projects", "Tech Events"],
+      skillColors: ["pink", "rose", "orange", "red"]
+    },
+  ];
+
   return (
     <div className="relative w-full min-h-screen overflow-hidden bg-neutral-950">
-      <Timeline data={data} />
+      {/* Desktop/Tablet View - Timeline */}
+      <div className="hidden md:block">
+        <Timeline data={data} />
+      </div>
+
+      {/* Mobile View - Card Stack */}
+      <div className="md:hidden px-4 py-8">
+        <h2 className="text-3xl font-bold text-center mb-8 bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">
+          Education Journey
+        </h2>
+        
+        <div className="space-y-6">
+          {mobileData.map((item, index) => (
+            <div
+              key={index}
+              className="relative bg-gradient-to-br from-neutral-900 to-neutral-800 rounded-2xl p-5 border border-neutral-700/50 shadow-xl overflow-hidden"
+            >
+              {/* Gradient Overlay */}
+              <div className={`absolute top-0 left-0 w-full h-1 bg-gradient-to-r ${item.gradient}`} />
+              
+              {/* Header */}
+              <div className="flex items-start gap-4 mb-4">
+                <div className={`flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br ${item.gradient} flex items-center justify-center text-white shadow-lg`}>
+                  {item.icon}
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="text-xs font-semibold text-neutral-400 uppercase tracking-wider">
+                      {item.type}
+                    </span>
+                    <span className="text-xs text-neutral-500">•</span>
+                    <span className="text-xs font-medium text-neutral-400">
+                      {item.year}
+                    </span>
+                  </div>
+                  <h3 className={`text-lg font-bold bg-gradient-to-r ${item.gradient} bg-clip-text text-transparent leading-tight`}>
+                    {item.degree}
+                  </h3>
+                  <p className="text-sm text-neutral-300 mt-1 leading-snug">
+                    {item.institution}
+                  </p>
+                </div>
+              </div>
+
+              {/* Description */}
+              <p className="text-sm text-neutral-400 leading-relaxed mb-4">
+                {item.description}
+              </p>
+
+              {/* Skills */}
+              <div className="flex flex-wrap gap-2">
+                {item.skills.map((skill, idx) => (
+                  <span
+                    key={idx}
+                    className={`px-3 py-1 bg-${item.skillColors[idx]}-500/20 text-${item.skillColors[idx]}-300 rounded-full text-xs border border-${item.skillColors[idx]}-500/30 font-medium`}
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+
+              {/* Bottom Accent Line */}
+              <div className={`absolute bottom-0 left-0 w-full h-px bg-gradient-to-r ${item.gradient} opacity-30`} />
+            </div>
+          ))}
+        </div>
+
+        {/* Decorative Element */}
+        <div className="mt-8 text-center">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-neutral-900 rounded-full border border-neutral-800">
+            <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+            <span className="text-xs text-neutral-400">Currently Studying</span>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

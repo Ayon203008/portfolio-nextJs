@@ -1,11 +1,11 @@
-// FloatingDockDemo.tsx
+
 import React from "react";
 import { FloatingDock } from "./ui/floating-dock";
 import {
   IconBrandGithub,
   IconBrandLinkedin,
   IconBrandFacebook,
-  IconBrandX, // Twitter (X)
+ 
 } from "@tabler/icons-react";
 
 export function FloatingDockDemo() {
@@ -25,11 +25,7 @@ export function FloatingDockDemo() {
       icon: <IconBrandFacebook className="h-8 w-8 dark:text-neutral-300" />,
       href: "https://www.facebook.com/ayon.ayon.583234",
     },
-    {
-      title: "Twitter",
-      icon: <IconBrandX className="h-8 w-8  dark:text-neutral-300" />,
-      href: "https://twitter.com/your-username",
-    },
+
   ];
 
   return (
@@ -37,7 +33,7 @@ export function FloatingDockDemo() {
       <FloatingDock
         mobileClassName="translate-y-6"
         items={links}
-        className="scale-125" // ⬅️ makes the whole dock bigger
+        className="scale-125" // 
       />
     </div>
   );
