@@ -18,7 +18,7 @@ export function FloatingDockDemo() {
     {
       title: "LinkedIn",
       icon: <IconBrandLinkedin className="h-8 w-8 dark:text-neutral-300" />,
-      href: "https://www.linkedin.com/in/abidayon/",
+      href: "https://www.linkedin.com/in/abid-hasan-ayon/",
     },
     {
       title: "Facebook",
