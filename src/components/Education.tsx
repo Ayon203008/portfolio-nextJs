@@ -21,7 +21,7 @@ export function Education() {
             </p>
           </div>
           <p className="text-neutral-400 leading-relaxed">
-            {/* এখানে 's কে &apos; দিয়ে পরিবর্তন করা হয়েছে */}
+       
             Currently pursuing Bachelor&apos;s degree in CSE with focus on modern web technologies, 
             software architecture, and advanced programming concepts.
           </p>

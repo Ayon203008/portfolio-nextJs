@@ -66,6 +66,33 @@ export function AllProjects() {
 }
 
 const projects = [
+{
+  title: "Fitlife",
+  description: (
+    <>
+      <p>
+        Fitlife is an AI-based fitness platform developed as a team project. It allows users to generate personalized workout plans and meal plans using AI.
+      </p>
+      <p>
+        <strong>Main Features:</strong> AI workout generator, AI meal planner, progress tracker, multi-language support, and AI chatbot for guidance.
+      </p>
+      <p>
+        <strong>Role:</strong> Worked as a Frontend Developer, creating interactive UI components, integrating NextAuth, and ensuring seamless user experience.
+      </p>
+      <p>
+        <strong>Technology Used:</strong> Next.js, NextAuth, Asertinity UI, TailwindCSS, Shadcn UI, Node.js, Express.js, JavaScript.
+      </p>
+      <p>
+        <strong>Future Plans:</strong> Add more AI-driven insights, gamification features, and enhance responsiveness across devices.
+      </p>
+    </>
+  ),
+  badge: "Next.js, NextAuth, Asertinity UI, Shadcn UI, Tailwind CSS, Node.js, Express.js, JavaScript, AI",
+  image: "https://i.postimg.cc/BvBNg5c2/Screenshot-2025-11-18-090109.png", 
+  live: "https://fitlife-lac.vercel.app/", 
+  github: "https://github.com/Nakib64/Fitlife", 
+}
+,
   {
     title: "TrustZen",
     description: (
